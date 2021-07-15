@@ -1,4 +1,7 @@
+var input = document.querySelector('input');
+
 var bar = new ProgressBar.Circle(container, {
+    zIndex: 2,
     color: '#aaa',
     // This has to be the same size as the maximum width to
     // prevent clipping
@@ -15,7 +18,6 @@ var bar = new ProgressBar.Circle(container, {
     step: function(state, circle) {
       circle.path.setAttribute('stroke', state.color);
       circle.path.setAttribute('stroke-width', state.width);
-      circle.path.setAttribute('z-index', 0);
   
       var value = Math.round(circle.value() * 100);
       if (value === 0) {
@@ -28,6 +30,7 @@ var bar = new ProgressBar.Circle(container, {
   });
   bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
   bar.text.style.fontSize = '2rem';
+  bar.text.style.zIndex = '1';
   
   bar.animate(1.0);  // Number from 0.0 to 1.0
 
